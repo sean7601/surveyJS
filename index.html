@@ -1,0 +1,60 @@
+<html>
+    <script src="utils/libraries/jspdf.js"></script>
+    <link href="utils/libraries/bootstrap.css" rel="stylesheet">
+    <script src="utils/libraries/bootstrap.js"></script>
+    <script src="utils/libraries/jquery.js"></script>
+    <script src="utils/libraries/chart.js"></script>
+    <script src="utils/libraries/docx.js"></script>
+    <script src="utils/libraries/filesaver.js"></script>
+    
+    <script src="utils/custom/compiler.js"></script>
+    <script src="utils/custom/taker.js"></script>
+    <script src="utils/custom/creator.js"></script>
+    <script src="utils/custom/controller.js"></script>
+
+
+    <style>
+
+        @media print {
+                div, canvas {margin-left:30px;margin-right:30px;}
+                canvas {break-inside: avoid;}
+                div.noOverflow {break-inside: avoid;page-break-after: always;}
+                
+            }
+
+            div.noOverflow {height:300px;width:500px; margin-top:10px; margin-bottom: 10px; break-inside: avoid;page-break-after: always; position:relative}
+    </style>
+    <head>
+        <title>Survey App</title>
+    </head>
+    <body>
+        <div id="content"></div>
+    </body>
+    <script>
+
+
+function PrintElem(elem)
+{
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1>' + document.title  + '</h1>');
+    mywindow.document.write(document.getElementById(elem).innerHTML);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+
+        controller.home();
+
+
+
+    </script>
+</html>
